@@ -1,6 +1,11 @@
-import Blog from "../../pages/Blog/Blog";
+import DashboardLayout from "../../layout/dashboardLayout/DashboardLayout";
+import BookedHouses from "../../pages/bookedHouses/BookedHouses";
+import Dashboard from "../../pages/dashboard/Dashboard";
 import Home from "../../pages/Home/Home";
+import ListedHouses from "../../pages/ListedHouses/ListedHouses";
 import Login from "../../pages/login/Login";
+import ManageBookedHouses from "../../pages/manageBookedHouses/ManageBookedHouses";
+import ManageListedHouses from "../../pages/manageListedHouses/ManageListedHouses";
 import NotFound from "../../pages/notFound/NotFound";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -18,6 +23,32 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/listedHouses',
+                element: <ListedHouses />
+            },
+            {
+                path: '/dashboard/manageListedHouses',
+                element: <ManageListedHouses />
+            },
+            {
+                path: '/dashboard/bookedHouses',
+                element: <BookedHouses />
+            },
+            {
+                path: '/dashboard/ManageBookedHouses',
+                element: <ManageBookedHouses />
             },
         ]
     },

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
-import "./Navbar.css";
 
-const navbar = () => {
+const Navbar = () => {
     return (
         <div className="navbar bg-base-100 pt-5">
             <div className="navbar md:navbar-start flex md:inline-block justify-between md:justify-normal items-center">
@@ -139,4 +138,4 @@ const navbar = () => {
     );
 };
 
-export default navbar;
+export default Navbar;
