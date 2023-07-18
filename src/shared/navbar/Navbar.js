@@ -103,6 +103,14 @@ const Navbar = () => {
 
                                     <hr />
 
+                                    {/* Availability date */}
+                                    <div className="my-8">
+                                        <h1 className='font-semibold text-2xl mt-5 mb-5'>Availability date</h1>
+                                        <input type="date" className='w-full border px-5 py-3' />
+                                    </div>
+
+                                    <hr />
+
                                     {/* Rent per month */}
 
                                     <div className="my-8">
@@ -191,7 +199,7 @@ const Navbar = () => {
 
                         {/* Room size */}
                         <div className="my-8">
-                            <h1 className='font-semibold text-2xl mt-5 mb-5'>Room Size</h1>
+                            <h1 className='font-semibold text-2xl mt-5 mb-5'>Room size</h1>
                             <div className='grid grid-cols-3 gap-3'>
                                 <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
                                     <p className='text-xl mb-2'>Small</p>
@@ -208,6 +216,14 @@ const Navbar = () => {
                                     <p>	14 X 16 Feet</p>
                                 </div>
                             </div>
+                        </div>
+
+                        <hr />
+
+                        {/* Availability date */}
+                        <div className="my-8">
+                            <h1 className='font-semibold text-2xl mt-5 mb-5'>Availability date</h1>
+                            <input type="date" className='w-full border px-5 py-3' />
                         </div>
 
                         <hr />
