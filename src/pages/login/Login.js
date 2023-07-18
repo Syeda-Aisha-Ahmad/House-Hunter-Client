@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div>
-            <div className="hero min-h-screen ">
+            <div className="hero mt-10 md:mt-0 md:min-h-screen ">
                 <div className="hero-content bg-oragne-50">
                     <div className="card flex-shrink-0 w-full max-w-sm border-2 bg-base-100 shadow-xl">
                         <div className="card-body">

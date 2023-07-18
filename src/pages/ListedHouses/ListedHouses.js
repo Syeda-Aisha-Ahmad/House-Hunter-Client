@@ -112,27 +112,7 @@ const ListedHouses = () => {
                         </div>
 
 
-                    </div>
-                </div>
 
-                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title flex justify-between">
-                            Address,City
-
-                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
-                        </h2>
-                        <p className='font-bold'>Owner Buchi Khondokar</p>
-                        <p>5 bedrooms 9 bathrooms</p>
-                        <div className='flex'>
-                            <p>Room size: Midium</p>
-                            <p className='font-semibold'>+8801992756161</p>
-                        </div>
-                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Availability date</div>
-                        </div>
 
                     </div>
                 </div>
@@ -155,7 +135,7 @@ const ListedHouses = () => {
                         <div className="card-actions justify-end">
                             <div className="badge badge-outline">Availability date</div>
                         </div>
-
+                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
                     </div>
                 </div>
 
@@ -177,7 +157,7 @@ const ListedHouses = () => {
                         <div className="card-actions justify-end">
                             <div className="badge badge-outline">Availability date</div>
                         </div>
-
+                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
                     </div>
                 </div>
 
@@ -199,7 +179,29 @@ const ListedHouses = () => {
                         <div className="card-actions justify-end">
                             <div className="badge badge-outline">Availability date</div>
                         </div>
+                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
+                    </div>
+                </div>
 
+                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
+                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
+                    <div className="card-body">
+                        <h2 className="card-title flex justify-between">
+                            Address,City
+
+                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
+                        </h2>
+                        <p className='font-bold'>Owner Buchi Khondokar</p>
+                        <p>5 bedrooms 9 bathrooms</p>
+                        <div className='flex'>
+                            <p>Room size: Midium</p>
+                            <p className='font-semibold'>+8801992756161</p>
+                        </div>
+                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
+                        <div className="card-actions justify-end">
+                            <div className="badge badge-outline">Availability date</div>
+                        </div>
+                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
                     </div>
                 </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ManageBookedHouses = () => {
     return (
-        <div className='mx-5'>
+        <div className='md:mx-5'>
             <h1 className='font-semibold text-3xl my-10 text-center text-orange-400'>
                 Manage Booked Houses
             </h1>

@@ -5,9 +5,9 @@ const SignUp = () => {
     return (
         <div>
 
-            <div className="hero min-h-screen bg-orange-50 my-5">
+            <div className="hero mt-10 md:mt-0 md:min-h-screen ">
                 <div className="hero-content">
-                    <div className="card flex-shrink-0 w-96 max-w-sm border-2 bg-base-100 shadow-xl">
+                    <div className="card flex-shrink-0 md:w-96 w-80 border-2 bg-base-100 shadow-xl">
 
                         <div className="card-body">
                             <h1 className='text-orange-300 font-bold text-3xl text-center mb-5'>Create an account!</h1>
