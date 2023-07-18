@@ -5,7 +5,7 @@ const ListedHouses = () => {
     return (
         <div>
 
-            <h1 className='font-semibold text-3xl mt-10 text-center text-orange-400'>Listed House</h1>
+            <h1 className='font-semibold text-3xl mt-10 text-center text-orange-400'>Listed Houses</h1>
 
             <form className='text-center mt-20'>
 

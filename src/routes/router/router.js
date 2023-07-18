@@ -7,6 +7,7 @@ import Login from "../../pages/login/Login";
 import ManageBookedHouses from "../../pages/manageBookedHouses/ManageBookedHouses";
 import ManageListedHouses from "../../pages/manageListedHouses/ManageListedHouses";
 import NotFound from "../../pages/notFound/NotFound";
+import SignUp from "../../pages/signUp/SignUp";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../layout/main/Main");
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+            {
+                path: '/signup',
+                element: <SignUp />
             },
         ]
     },

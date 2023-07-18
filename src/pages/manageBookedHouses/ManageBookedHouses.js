@@ -3,8 +3,8 @@ import React from 'react';
 const ManageBookedHouses = () => {
     return (
         <div className='mx-5'>
-            <h1 className='text-4xl text-center text-primary my-10 '>
-                All Sellers
+            <h1 className='font-semibold text-3xl my-10 text-center text-orange-400'>
+                Manage Booked Houses
             </h1>
 
             <div className="overflow-x-auto">
