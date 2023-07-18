@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
+import InputRange from 'react-input-range';
 
 const Navbar = () => {
+    const [width, setWidth] = useState(100);
+
+    const changeWidth = (event) => {
+        setWidth(event.target.value);
+    };
+
     return (
         <div className="navbar bg-base-100 pt-5">
             <div className="navbar md:navbar-start flex md:inline-block justify-between md:justify-normal items-center">
@@ -48,15 +55,15 @@ const Navbar = () => {
                                         <div className='mt-6'>
                                             <h2 className='text-xl '>Beds</h2>
                                             <div className='mt-3 grid grid-cols-3 gap-3'>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>Any</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>1</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>2</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>3</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>4</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>5</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>6</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>7</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>8+</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>Any</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>1</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>2</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>3</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>4</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>5</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>6</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>7</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>8+</button>
                                             </div>
                                         </div>
 
@@ -65,15 +72,15 @@ const Navbar = () => {
                                         <div className='mt-6'>
                                             <h2 className='text-xl '>Bathrooms</h2>
                                             <div className='mt-3 grid grid-cols-3 gap-3'>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>Any</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>1</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>2</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>3</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>4</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>5</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>6</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>7</button>
-                                                <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>8+</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>Any</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>1</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>2</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>3</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>4</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>5</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>6</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>7</button>
+                                                <button className='text-lg font-semibold border border-orange-800 py41 px-7 rounded-full hover:bg-orange-400 hover:text-white'>8+</button>
                                             </div>
                                         </div>
                                     </div>
@@ -84,17 +91,17 @@ const Navbar = () => {
                                     <div className="my-8">
                                         <h1 className='font-semibold text-2xl mt-5 mb-5'>Room Size</h1>
                                         <div className='grid grid-cols-2 gap-3'>
-                                            <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
+                                            <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
                                                 <p className='text-xl mb-2'>Small</p>
                                                 <p>	10 X 10 Feet</p>
                                             </div>
 
-                                            <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
+                                            <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
                                                 <p className='text-xl mb-2'>Medium</p>
                                                 <p>	12 X 12 Feet</p>
                                             </div>
 
-                                            <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
+                                            <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
                                                 <p className='text-xl mb-2'>Large</p>
                                                 <p>	14 X 16 Feet</p>
                                             </div>
@@ -114,9 +121,23 @@ const Navbar = () => {
                                     {/* Rent per month */}
 
                                     <div className="my-8">
-                                        <h1 className='font-semibold text-2xl mt-5'>Rent per month</h1>
+                                        <h1 className='font-semibold text-2xl mt-5'>Rent per month <br />{width}/=</h1>
+                                        <input
+                                            type='range'
+                                            onChange={changeWidth}
+                                            min={1000}
+                                            max={10000}
+                                            step={1}
+                                            value={width}
+                                            className="w-full accent-orange-400 mt-5"
+                                        ></input>
 
+                                    </div>
 
+                                    <div className=' bg-orange-400 hover:bg-orange-500 py-2 rounded-2xl text-center text-white'>
+                                        <button>
+                                            Show result
+                                        </button>
                                     </div>
 
                                 </form>
@@ -143,7 +164,7 @@ const Navbar = () => {
 
                 {/* Modal Information */}
                 <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className="modal-box w-11/12 max-w-3xl">
+                    <form method="dialog" className="relative modal-box w-11/12 max-w-3xl">
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         <h3 className="font-bold text-lg text-center mb-5">Filters</h3>
                         <hr />
@@ -165,15 +186,15 @@ const Navbar = () => {
                             <div className='mt-6'>
                                 <h2 className='text-xl '>Beds</h2>
                                 <div className='mt-3 flex justify-between'>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>Any</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>1</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>2</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>3</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>4</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>5</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>6</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>7</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>8+</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>Any</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>1</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>2</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>3</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>4</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>5</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>6</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>7</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>8+</button>
                                 </div>
                             </div>
 
@@ -182,15 +203,15 @@ const Navbar = () => {
                             <div className='mt-6'>
                                 <h2 className='text-xl '>Bathrooms</h2>
                                 <div className='mt-3 flex justify-between'>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>Any</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>1</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>2</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>3</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>4</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>5</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>6</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>7</button>
-                                    <button className='text-lg font-semibold border border-orange-800 py-1 px-7 rounded-full hover:bg-orange-800 hover:text-white'>8+</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>Any</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>1</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>2</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>3</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>4</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>5</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>6</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>7</button>
+                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>8+</button>
                                 </div>
                             </div>
                         </div>
@@ -201,17 +222,17 @@ const Navbar = () => {
                         <div className="my-8">
                             <h1 className='font-semibold text-2xl mt-5 mb-5'>Room size</h1>
                             <div className='grid grid-cols-3 gap-3'>
-                                <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
+                                <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
                                     <p className='text-xl mb-2'>Small</p>
                                     <p>	10 X 10 Feet</p>
                                 </div>
 
-                                <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
+                                <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
                                     <p className='text-xl mb-2'>Medium</p>
                                     <p>	12 X 12 Feet</p>
                                 </div>
 
-                                <div className='text-center px-5 py-10 hover:border-orange-800 rounded-2xl border font-semibold'>
+                                <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
                                     <p className='text-xl mb-2'>Large</p>
                                     <p>	14 X 16 Feet</p>
                                 </div>
@@ -231,9 +252,24 @@ const Navbar = () => {
                         {/* Rent per month */}
 
                         <div className="my-8">
-                            <h1 className='font-semibold text-2xl mt-5'>Rent per month</h1>
+                            <h1 className='font-semibold text-2xl mt-5'>Rent per month {width}/=</h1>
 
+                            <input
+                                type='range'
+                                onChange={changeWidth}
+                                min={1000}
+                                max={10000}
+                                step={1}
+                                value={width}
+                                className="w-full accent-orange-400 mt-5"
+                            ></input>
 
+                        </div>
+
+                        <div className=' bg-orange-400 hover:bg-orange-500 py-2 rounded-2xl text-center text-white'>
+                            <button>
+                                Show result
+                            </button>
                         </div>
 
                     </form>
