@@ -42,24 +42,25 @@ const Houses = () => {
 
                 <div className='mt-20 grid md:grid-cols-3 gap-y-14'>
                     {
-                        data.map(service =>
+                        data.map(house =>
                             <div className="card w-96 mx-auto bg-base-100 shadow-xl">
-                                <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
+                                <figure><img src={house.photo}
+                                    alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title flex justify-between">
-                                        {service.city}
+                                        {house.city}
 
-                                        <div className="badge bg-orange-300 py-3 text-black text-base">{service.rent}/=</div>
+                                        <div className="badge bg-orange-300 py-3 text-black text-base">{house.rent}/=</div>
                                     </h2>
-                                    <p className='font-bold'>{service.name}</p>
-                                    <p>{service.beds} bedrooms {service.bathrooms} bathrooms</p>
+                                    <p className='font-bold'>{house.name}</p>
+                                    <p>{house.beds} bedrooms {house.bathrooms} bathrooms</p>
                                     <div className='flex'>
-                                        <p>Room size: {service.room}</p>
-                                        <p className='font-semibold'>{service.phone}</p>
+                                        <p>Room size: {house.room}</p>
+                                        <p className='font-semibold'>{house.phone}</p>
                                     </div>
-                                    <p>{service.description}</p>
+                                    <p>{house.description}</p>
                                     <div className="card-actions justify-end">
-                                        <div className="badge badge-outline">Availability: {service.date}</div>
+                                        <div className="badge badge-outline">Availability: {house.date}</div>
                                     </div>
 
                                     {/* Modal button */}

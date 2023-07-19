@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GrAdd } from 'react-icons/gr';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 
 const ListedHouses = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     const [dataa, setDataa] = useState([])
+    const [houses, setHouses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const addHouse = (event) => {
         event.preventDefault();
@@ -48,8 +51,8 @@ const ListedHouses = () => {
             .then(data => {
                 setDataa(data)
                 if (data.acknowledged) {
-                    // toast.success('Successfully toasted!')
-                    // loading(true)
+                    toast.success('Successfully toasted!')
+                    loading(true)
                     alert("Done");
                 }
                 else {
@@ -59,6 +62,23 @@ const ListedHouses = () => {
             .catch(error => console.error(error));
     }
 
+
+
+    useEffect(() => {
+        const requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:5000/addHouse", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                setLoading(false);
+                setHouses(result);
+            })
+            .catch(error => console.log('error', error));
+
+    }, [])
 
     return (
         <div>
@@ -150,121 +170,65 @@ const ListedHouses = () => {
             </div>
 
 
-            <div className='mt-10 grid md:grid-cols-3 gap-y-14'>
+            <div >
 
-                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title flex justify-between">
-                            Address,City
-
-                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
-                        </h2>
-                        <p className='font-bold'>Owner Buchi Khondokar</p>
-                        <p>5 bedrooms 9 bathrooms</p>
-                        <div className='flex'>
-                            <p>Room size: Midium</p>
-                            <p className='font-semibold'>+8801992756161</p>
-                        </div>
-                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Availability date</div>
-                        </div>
+                {loading ?
+                    <p>Loading</p> :
 
 
+                    <div className='mt-20 grid md:grid-cols-3 gap-y-14'>
+                        {
+                            houses.map(house =>
+                                <div className="card w-72 mx-auto bg-base-100 shadow-xl">
+                                    <figure className="h-30"><img src={house.photo} alt="Shoes" /></figure>
+                                    <div className="card-body">
+                                        <h2 className="card-title flex justify-between">
+                                            {house.city}
+
+                                            <div className="badge bg-orange-300 py-3 text-black text-base">{house.rent}/=</div>
+                                        </h2>
+                                        <p className='font-bold'>{house.name}</p>
+                                        <p>{house.beds} bedrooms {house.bathrooms} bathrooms</p>
+                                        <div className='flex'>
+                                            <p>Room size: {house.room}</p>
+                                            <p className='font-semibold'>{house.phone}</p>
+                                        </div>
+                                        <p>{house.description}</p>
+                                        <div className="card-actions justify-end">
+                                            <div className="badge badge-outline">Availability: {house.date}</div>
+                                        </div>
+
+                                        {/* Modal button */}
+                                        <button className="btn w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500" onClick={() => window.my_modal_4.showModal()}>Book Now</button>
+
+                                        {/* Modal information */}
+                                        <dialog id="my_modal_4" className="modal">
 
 
+                                            <form method="dialog" className="modal-box" onSubmit={addHouse}>
+                                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                <h3 className="font-bold text-lg text-center mb-5">Booking Information</h3>
+
+                                                <input placeholder="Enter your name" {...register("name")} className='border w-full p-2 rounded-lg mb-4 placeholder:text-lg focus:outline-orange-200' />
+
+                                                <input placeholder="Enter your email" {...register("email")} className='border w-full p-2 rounded-lg mb-4 placeholder:text-lg focus:outline-orange-200' />
+
+                                                <input placeholder="Enter your phone" {...register("phone")} className='border w-full p-2 rounded-lg mb-4 placeholder:text-lg focus:outline-orange-200' />
+
+
+                                                {errors.exampleRequired && <span>This field is required</span>}
+
+                                                <input type="submit" className="btn w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-3 hover:bg-orange-500" />
+                                            </form>
+                                        </dialog>
+
+
+                                    </div>
+                                </div>)
+                        }
                     </div>
-                </div>
 
-                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title flex justify-between">
-                            Address,City
-
-                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
-                        </h2>
-                        <p className='font-bold'>Owner Buchi Khondokar</p>
-                        <p>5 bedrooms 9 bathrooms</p>
-                        <div className='flex'>
-                            <p>Room size: Midium</p>
-                            <p className='font-semibold'>+8801992756161</p>
-                        </div>
-                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Availability date</div>
-                        </div>
-                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
-                    </div>
-                </div>
-
-                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title flex justify-between">
-                            Address,City
-
-                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
-                        </h2>
-                        <p className='font-bold'>Owner Buchi Khondokar</p>
-                        <p>5 bedrooms 9 bathrooms</p>
-                        <div className='flex'>
-                            <p>Room size: Midium</p>
-                            <p className='font-semibold'>+8801992756161</p>
-                        </div>
-                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Availability date</div>
-                        </div>
-                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
-                    </div>
-                </div>
-
-                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title flex justify-between">
-                            Address,City
-
-                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
-                        </h2>
-                        <p className='font-bold'>Owner Buchi Khondokar</p>
-                        <p>5 bedrooms 9 bathrooms</p>
-                        <div className='flex'>
-                            <p>Room size: Midium</p>
-                            <p className='font-semibold'>+8801992756161</p>
-                        </div>
-                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Availability date</div>
-                        </div>
-                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
-                    </div>
-                </div>
-
-                <div className="card w-80 mx-auto bg-base-100 shadow-xl">
-                    <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title flex justify-between">
-                            Address,City
-
-                            <div className="badge bg-orange-300 py-3 text-black text-base">$100/month</div>
-                        </h2>
-                        <p className='font-bold'>Owner Buchi Khondokar</p>
-                        <p>5 bedrooms 9 bathrooms</p>
-                        <div className='flex'>
-                            <p>Room size: Midium</p>
-                            <p className='font-semibold'>+8801992756161</p>
-                        </div>
-                        <p>If a dog chews shoes whose shoes does he choose?If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <div className="badge badge-outline">Availability date</div>
-                        </div>
-                        <button className='w-full bg-orange-400 text-white text-xl font-semibold rounded-full py-2 mt-5 hover:bg-orange-500'>Book Now</button>
-                    </div>
-                </div>
-
+                }
             </div>
         </div>
     );
