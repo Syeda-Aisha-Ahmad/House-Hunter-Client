@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFilter } from 'react-icons/fa';
-import InputRange from 'react-input-range';
+import { useForm } from "react-hook-form";
 
 const Navbar = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+
     const [width, setWidth] = useState(100);
 
     const changeWidth = (event) => {
         setWidth(event.target.value);
     };
+
+    const filterForm = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const search = form.search.value;
+        const beds = form.beds.value;
+        const bathrooms = form.bathrooms.value;
+        const room = form.room.value;
+        const date = form.date.value;
+        const rent = form.rent.value;
+        console.log(search, beds, bathrooms, room, date, rent);
+        form.reset();
+    }
 
     return (
         <div className="navbar bg-base-100 pt-5">
@@ -92,17 +108,17 @@ const Navbar = () => {
                                         <h1 className='font-semibold text-2xl mt-5 mb-5'>Room Size</h1>
                                         <div className='grid grid-cols-2 gap-3'>
                                             <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
-                                                <p className='text-xl mb-2'>Small</p>
+                                                <p className='text-xl mb-2 font-semibold'>Small</p>
                                                 <p>	10 X 10 Feet</p>
                                             </div>
 
                                             <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
-                                                <p className='text-xl mb-2'>Medium</p>
+                                                <p className='text-xl mb-2 font-semibold'>Medium</p>
                                                 <p>	12 X 12 Feet</p>
                                             </div>
 
                                             <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
-                                                <p className='text-xl mb-2'>Large</p>
+                                                <p className='text-xl mb-2 font-semibold'>Large</p>
                                                 <p>	14 X 16 Feet</p>
                                             </div>
                                         </div>
@@ -150,6 +166,7 @@ const Navbar = () => {
 
             </div>
 
+
             {/* Large device */}
             <div className="navbar hidden lg:flex">
                 <div className="form-control w-full">
@@ -164,16 +181,17 @@ const Navbar = () => {
 
                 {/* Modal Information */}
                 <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className="relative modal-box w-11/12 max-w-3xl">
+
+
+                    <form method="dialog" onSubmit={filterForm} className="relative modal-box w-11/12 max-w-3xl">
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                         <h3 className="font-bold text-lg text-center mb-5">Filters</h3>
                         <hr />
 
                         <div className='mt-5 mb-8'>
                             <h2 className='text-2xl font-semibold mb-3'>Search for a city</h2>
-                            <div className="form-control w-full ">
-                                <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-full " />
-                            </div>
+
+                            <input name='search' placeholder="Search" {...register("search")} className='input input-bordered w-44 md:w-full p-2 rounded-lg mb-4 placeholder:text-lg focus:outline-orange-200' />
                         </div>
 
                         <hr />
@@ -182,36 +200,39 @@ const Navbar = () => {
                         <div className="my-8">
                             <h1 className='font-semibold text-2xl mt-5'>Beds and bathrooms</h1>
 
-                            {/* Beds */}
-                            <div className='mt-6'>
-                                <h2 className='text-xl '>Beds</h2>
-                                <div className='mt-3 flex justify-between'>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>Any</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>1</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>2</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>3</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>4</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>5</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>6</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>7</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>8+</button>
+                            <div className="grid grid-cols-2 gap-4">
+                                {/* Beds */}
+                                <div className='mt-6 '>
+                                    <select name='beds' className="select select-bordered w-full text-base focus:outline-none">
+                                        <option disabled selected>Beds</option>
+                                        <option>Any</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8+</option>
+                                    </select>
                                 </div>
-                            </div>
 
 
-                            {/* Bathrooms */}
-                            <div className='mt-6'>
-                                <h2 className='text-xl '>Bathrooms</h2>
-                                <div className='mt-3 flex justify-between'>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>Any</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>1</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>2</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>3</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>4</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>5</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>6</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>7</button>
-                                    <button className='text-lg font-semibold border border-orange-400 py-1 px-7 rounded-full hover:bg-orange-400 hover:text-white'>8+</button>
+                                {/* Bathrooms */}
+                                <div className='mt-6 '>
+                                    {/* <h2 className='text-xl '>Bathrooms</h2> */}
+                                    <select name='bathrooms' className="select select-bordered w-full text-base focus:outline-none">
+                                        <option disabled selected>Bathrooms</option>
+                                        <option>Any</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8+</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -221,22 +242,28 @@ const Navbar = () => {
                         {/* Room size */}
                         <div className="my-8">
                             <h1 className='font-semibold text-2xl mt-5 mb-5'>Room size</h1>
-                            <div className='grid grid-cols-3 gap-3'>
-                                <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
-                                    <p className='text-xl mb-2'>Small</p>
-                                    <p>	10 X 10 Feet</p>
-                                </div>
 
-                                <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
-                                    <p className='text-xl mb-2'>Medium</p>
-                                    <p>	12 X 12 Feet</p>
-                                </div>
-
-                                <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
-                                    <p className='text-xl mb-2'>Large</p>
-                                    <p>	14 X 16 Feet</p>
-                                </div>
-                            </div>
+                            <select name='room' className="select select-bordered w-full text-base focus:outline-none">
+                                <option disabled selected>Choose a room size</option>
+                                <option>
+                                    <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
+                                        <p className='text-xl mb-2 font-semibold'>Small </p>
+                                        <p>	10 X 10 Feet</p>
+                                    </div>
+                                </option>
+                                <option>
+                                    <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
+                                        <p className='text-xl mb-2 font-semibold'>Medium </p>
+                                        <p>	12 X 12 Feet</p>
+                                    </div>
+                                </option>
+                                <option>
+                                    <div className='text-center px-5 py-10 hover:border-orange-400 rounded-2xl border font-semibold'>
+                                        <p className='text-xl mb-2 font-semibold'>Large </p>
+                                        <p>	14 X 16 Feet</p>
+                                    </div>
+                                </option>
+                            </select>
                         </div>
 
                         <hr />
@@ -244,7 +271,7 @@ const Navbar = () => {
                         {/* Availability date */}
                         <div className="my-8">
                             <h1 className='font-semibold text-2xl mt-5 mb-5'>Availability date</h1>
-                            <input type="date" className='w-full border px-5 py-3' />
+                            <input type="date" name='date' className='w-full border px-5 py-3' />
                         </div>
 
                         <hr />
@@ -255,6 +282,7 @@ const Navbar = () => {
                             <h1 className='font-semibold text-2xl mt-5'>Rent per month {width}/=</h1>
 
                             <input
+                                name='rent'
                                 type='range'
                                 onChange={changeWidth}
                                 min={1000}
@@ -281,7 +309,7 @@ const Navbar = () => {
                 <Link to="/dashboard" className='mr-5 text-lg font-semibold  text-orange-800'>Dashboard</Link>
                 <Link to="/login" className='mr-5 text-lg font-semibold  text-orange-800'>Login</Link>
             </div>
-        </div>
+        </div >
     );
 };
 
